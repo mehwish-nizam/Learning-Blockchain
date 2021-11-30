@@ -1,0 +1,13 @@
+Blockchain: Blockchain is distributed, decentralized and immutable public ledger.
+Decentralized and Distributed: A decentralized system is a subset of a distributed system.
+Decentralized means that there is no single point where the decision is made.
+Distributed means that the processing is shared across multiple nodes, but the decisions may still be centralized and use complete system knowledge.
+Concept of cryptocurrency (bitcoin) was given by a mysterious person called Satoshi Nakamoto in 2008
+Blockchain enables peer to peer P2P transaction.
+P2P: A group of computers are linked together with equal permissions and responsibilities for processing data. No server client concept.
+Since there is no central authority, the mechanism is required to solve security and trust issues.
+To establish trust among unknown peers, blockchain implements software programs for validation and Concensus.
+Validation verifies that the transactions is legal (not malicious, double spends etc).
+Consensus involves agreeing on the ordering of validated transactions.
+First validation then concensus
+Details: https://medium.com/hupayx/how-are-blockchain-transactions-validated-consensus-vs-validation-ada9c001fd0a
