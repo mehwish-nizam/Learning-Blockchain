@@ -10,4 +10,9 @@ To establish trust among unknown peers, blockchain implements software programs 
 Validation verifies that the transactions is legal (not malicious, double spends etc).
 Consensus involves agreeing on the ordering of validated transactions.
 First validation then concensus
-Details: https://medium.com/hupayx/how-are-blockchain-transactions-validated-consensus-vs-validation-ada9c001fd0a
+The algorithm for consensus in the Bitcoin blockchain is called Proof of work protocol.
+
+
+Useful links
+https://blockgeeks.com/guides/what-is-blockchain-technology/
+https://medium.com/hupayx/how-are-blockchain-transactions-validated-consensus-vs-validation-ada9c001fd0a
