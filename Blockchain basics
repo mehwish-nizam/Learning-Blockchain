@@ -12,6 +12,25 @@ Consensus involves agreeing on the ordering of validated transactions.
 First validation then concensus
 The algorithm for consensus in the Bitcoin blockchain is called Proof of work protocol.
 
+/******************************* TYPES OF NODES IN A BLOCKCHAIN NETWORK************************************/
+
+A node is any computer that connects to the blockchain network, for instance, any computer connected to the Bitcoin network can be regarded as a Bitcoin node.
+
+The nodes are of three types:
+
+REFERENCE CLIENT (Bitcoin core) MINER NODE: 
+      Contains wallet, mining, full blockchain database and network routing mode on the P2P network.
+      Miner nodes can propose blocks and have the complete history of the blockchain.
+      
+Full Blockchain Node:
+    Contains full blockchain database and network routing mode on the P2P network.
+    Full nodes have the complete history of the blockchain but cannot propose new blocks 
+    
+Lightweight SPV wallet: 
+    Contains wallet and a network mode on the P2P protocol without blockchain.
+    It doesn't download the entire copy of the blockchain.
+    It relies on full nodes for blockchain history.
+    
 
 Useful links
 https://blockgeeks.com/guides/what-is-blockchain-technology/
