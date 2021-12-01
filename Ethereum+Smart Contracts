@@ -1,0 +1,72 @@
+Ethereum:
+    Ethereum is a programmable blockchain. Rather than give users a set of pre-defined operations (e.g. bitcoin transactions), Ethereum allows users to create 
+    their own operations of any complexity they wish. In this way, it serves as a platform for many different types of decentralized blockchain applications, 
+    including but not limited to cryptocurrencies.
+    
+    
+    Accounts:
+        In bitcoin UTXOs define the state of the bitcoin blockchain. But Ethereum includes account as a part of the protocol.
+        Account is the originator and target of the transaction.
+        
+        Therea re two types of accounts
+        1. Externally owned accounts(EOA): 
+              Controlled by own private keys
+        2. Contract Accounts: 
+              Controlled by their contract code(smart contract) and can only be “activated” by an EOA
+              Contract accounts only perform an operation when instructed to do so by an EOA. So it is not possible for a Contract account to be performing native 
+              operations like random number generation or API calls it can do these things only if prompted by an EOA.
+  
+  
+    Full node of ethereum blockchain consist of:
+      Software needed for:
+          Transaction
+          Validation
+          Mining
+          Creation of block
+          Smart contract execution
+          Ethereum Virtual Machine(EVM)
+      
+    
+    The node of ethereum can make transaction for ether transfer and also can make transaction to exexute a CA (can be done only by EOA).
+    Both types of transaction requires fee. Fee is paid in wei 1 Ether = 10^18 wei
+    
+    /************************Transaction of Ethereum*******************************************/
+    Transaction of ethereum includes these informations
+    * Reciepient
+    * Signature of sender
+    * Amount of wei (which sender wants to transfer)
+    * Message/data/payload to smart cntract
+    * STARTGAS (max # of computational steps)
+    * GASPRICE (Fees for computation)
+Details for GAS: https://ethereum.stackexchange.com/questions/3/what-is-meant-by-the-term-gas
+
+
+Smart Contract:
+    Piece of code deployed in the blockchain node.
+    This piece of code may include som criteria for transaction like if else condition or some time delay or any business logic.
+    A currency transfer only involves addition and subtraction without any criteria that's why smart contracts aren't used in bitcoin(only crytocurrency) blockchain.
+    Execution is initiated by a message embedded in transaction.
+    Every node holds the same smart contract.
+    Every node in the ethereum blockchain must be able to execute smart contract code irrespective of its hardware specification.
+    Here comes the need for EVM(Ethereum virtual machine) which enables the node to execute smart contract.
+    Smart contracts are written in high level language like solidity and cmpiled to byte code and then deployed to EVM.
+    There can be multiple smart contracts deployed on single EVM.
+  
+  
+Ethereum uses incentive model for block creation
+Every action in ethereum requires gas fees
+Gas measures the amount of work required for transaction
+When it comes to actually paying for the gas, the transaction fee is charged as a certain number of ether
+We do not measure effort/work directly in ether because ether is a cuurency whose value changes with market condition but the cost of computation should remain same
+
+The transaction gets rejected if:
+      The gasprice specied is very low, no miner will run your transaction(Message: your transaction not having a high enough fee)
+      The gasprice is sufficient but the transaction results in too much computational work that the gast costs exceed the gasfee. The fee is paid to the miner for the 
+      amount of work done from your account and the transaction is attached to the block as a failed transaction.
+If the gasfees is higher than the cost then the unspent amount is returned to the originating account.
+
+
+/*******************************INCENTIVE MODEL******************************/
+According to incentive model, the winning miner gets the reward amount (3 ether) + transaction fee + gasfees
+It may be possible that other miners also solve the mining puzzle, they are called ommers and the block created by them are called ommer blocks and are added as
+a side block to the chain. These ommers also get a small percentage of gasfees
