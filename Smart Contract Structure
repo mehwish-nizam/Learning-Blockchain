@@ -1,0 +1,39 @@
+Sample code structure:
+pragma solidity >=0.7.0 <0.9.0;
+
+contract Storage {
+
+    uint256 storedData;
+
+    function set(uint256 num) public {
+        storedData = num;
+    }
+
+
+    function increment(uint256 x) public {
+        storedData = storedData + x;
+        return;
+    }
+    function decrement(uint256 x) public {
+        storedData = storedData - x;
+        return;
+    }
+    function get() public view returns (uint256){
+        return storedData;
+    }
+}
+
+A smart contract contain
+1. Data/State variable
+2. Fuctions:
+  2.1 Constructor
+  2.2 Fallback
+  2.3 View
+  2.4 Pure
+  2.5 Internal
+  2.6 External
+  2.7 Private
+  2.8 Public
+3. User defined types in struct and enums
+4. Modifiers
+5. Events
