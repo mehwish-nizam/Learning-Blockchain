@@ -1,0 +1,31 @@
+Token is a digital asset that is stored securely on the blockchain.
+
+Token and Cryptocurrency are two differen things...
+A cryptocurrency is a standard currency used for making or receiving payments on a blockchain
+A token represents a tradable asset or utility that resides on its own blockchain and allows the holder to use it for investment or economic purposes. 
+Cryptocurrency is a superset of blockchain
+
+
+
+Tokens that reside on blockchains include reward tokens, currency tokens, utility tokens, security tokens, equity token, and asset tokens. 
+Things we can do with tokens but not with cryptocurrency
+1) Grant access to some service
+2) Verify certificates/documents
+3) Used as a currency for payment 
+4) Give authorization of digital asset to some entity
+5) Sell or register shares of a company
+
+
+Fungible amd Non fungible Tokens:
+Fungibility: It is a property of an asset whose individual units are easily interchangable.
+eg. one 100Rs note can be changed with another 100Rs note
+
+Fungible Tokens: Individual tokens can be interchanged.
+Non-fungible Tokens: Individual tokens can't be interchanged. (e.g One painting can't be interchanged with another)
+
+
+Intrinsic and Etrinsic Values of token:
+Itrinstic means value within the token (e.g For 100Rs note 100 is its intrinsic value that is written on the note).
+Extrinsic means token represents some outsider asset (e.g One token = 10g Gold)
+
+ERC20 is the standard for ethereum token
