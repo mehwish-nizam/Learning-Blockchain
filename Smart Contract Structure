@@ -37,3 +37,26 @@ A smart contract contain
 3. User defined types in struct and enums
 4. Modifiers
 5. Events
+
+
+Special Data types of Solidity
+1. Address: Address is a special oslidity defined composite data type. It can hold 20 bytes ethereum address (Address is a reference to address a smart contract)
+            It has a property called balance ADDRESS.balance(uint256) --> Balance of the address in wei
+            It also has a function called transfer ADDRESS.transfer(uint256 amount) --> To transfer given amount (in wei) to address
+            
+2. Mapping: Mapping is also a special and versatile data type in solidity. Used for associating a key to a value. mapping(_KeyType => _ValueType)
+            _KeyType − can be any built-in types plus bytes and string. No reference type or complex objects are allowed.
+            _ValueType − can be any type.
+            
+3. Message: Message is a complex data type in solidity to call. It represents a call that can be used to invoke a function of smart contract.
+            msg has several attributes Two are used frequently i.e sender and value
+            Example address adr = msg.sender, uint amt = msg.value
+            
+
+            
+            
+            
+            
+            
+            
+
