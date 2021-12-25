@@ -1,0 +1,47 @@
+State Variables (Stored on blockcain)
+ • Permanently stored in contract storage.
+ • Cost gas(expensive).
+ • Storage not dynamically allocated.
+ • Instance of the contract cannot have other state variables besides those already declared.
+Local Variables
+ • Declared inside functions and are kept on the stack , not on storage.
+ • Don't cost gas.
+ • There are some types that reference the storage by default.
+ • Memory keyword can't be used at contract level(State vaiable)
+ 
+ 
+Wrong
+pragma solidity >= 0.5.0 < e.9.e;
+contract local
+{
+function store() pure public returns(uint)
+  {
+      string name="ravi"; //This will give error because string(array, struct...) is state by default. To declare it as local use keyword memory
+      uint age=11;
+      return age;
+  }
+}
+
+Right
+pragma solidity >= 0.5.0 < 0.9.0;
+contract local
+{
+  function store() pure public returns(uint)
+      string memory name="ravi";
+      uint age=11;
+      return age;
+  }
+}
+
+
+
+When you call a setter function it creates a transaction that needs to be mined and costs gas because it changes the blockchain. Vice versa for getter function.
+When you declare a public state variable a getter function is automatically created.
+By default variable visibility is private.
+
+
+
+Use of view or pure functions:
+Both shows that this function will not change any state variable.
+Difference is that view is used when we are reading state variable. (Usually getter functions) and pure is used when there is no use of state variable(neither
+read nor write). Used only for local variables
