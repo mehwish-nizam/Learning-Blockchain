@@ -1,0 +1,17 @@
+Bytes array: Everything that will be stored in the byte array will be in the form of hexadecimal digits.
+No square brackets required in declaration as in normal arrays
+Single bytes in byte arrays cannot be modified. The whole array can be changed at once but one/two.. bytes cannot be modified.
+contract Array{
+bytes3 public b3; //3 bytes array
+bytes2 public b2; //2 bytes array
+function setter() public
+ {
+     b3='abc'; //Correct
+     b3[0]='d' //Wrong
+ }
+}
+              I
+Padding of 0 is added at the end if the value(by which the array is initialized) does not occupy the entire space.
+Bytes array can be of fixed size or dynamic.
+Fixed size: e.g bytes1, bytes32,
+Dynamic: e.g bytes
