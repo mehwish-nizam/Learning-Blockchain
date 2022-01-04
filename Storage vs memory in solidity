@@ -1,0 +1,44 @@
+Storage:
+Holds state variables. 
+Persistent
+Cost gas
+Like a computer HDD
+
+
+Memory:
+Holds local variables defined inside functions if they are reference types.
+Not persistent
+No gas
+Like a computer RAM
+
+
+
+
+
+
+
+
+
+string[] public student =['Ravi', 'Rita', 'Aman'];              Ravi Rita Aman
+                                                                  0    1    2
+                                                                  
+                                                                  
+Use of Memory:
+//When we use memory keyword, it creates a copy of student array
+ 
+string[] memory s1=student;                                    Ravi Rita Aman
+                                                                 0   1     2
+ 
+No this line will not do any change in student array. The changed value is reflected only in copy of array(s1)
+s1[0] = 'Mehwish';        
+
+
+
+Use of Storage:
+string[] public student =['Ravi', 'Rita', 'Aman'];            Ravi Rita Aman
+                                                                0    1    2
+                                                                        
+string[] storage s1=student; //This s1 will point to student array. Any change in s1 will also be reflected in student array.
+s1[0] = 'Mehwish';     //student array will be changed
+
+                                                
