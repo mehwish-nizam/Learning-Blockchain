@@ -1,0 +1,7 @@
+recieve: recieve is a special reserved function to recieve ethers into contract's account that can be 
+      . written only once in a contract 
+      . without function keyword 
+      . with external 
+      . and payable devlaration 
+      . and no arguments
+        e.g recieve() external payable { // You can write some code here or can leave this empty}
