@@ -1,0 +1,17 @@
+Functions and addresses declared payable can receive ether into the contract.
+e.g  
+    1. address payable public owner;     // Payable address can receive Ether
+    
+    2. constructor() payable {    // Payable constructor can receive Ether
+        owner = payable(msg.sender);
+    }
+     
+    3. function deposit() public payable {} // Function to deposit Ether into this contract.
+                                            // Call this function along with some Ether.
+                                            // The balance of this contract will be automatically updated.
+
+
+If you call simple function(without payable keyword) with some ether, it will throw an error
+// Call this function along with some Ether.
+// The function will throw an error since this function is not payable.
+function abc() public {}
