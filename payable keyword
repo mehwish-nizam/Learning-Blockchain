@@ -20,17 +20,19 @@ function abc() public {}
 
 pragma solidity >=0.5.0 < 0.9.0;
 
-contract pay{
-    address payable user;
-    function payEther() public payable {
-        // We can pay some amount to the deployer of this contract by this function
-        user = payable(msg.sender);
+contract Payable{
+    address payable public contractAccount;
+    constructor() payable {
+        contractAccount = payable(msg.sender);
     }
-    function getBalance() public view returns(uint){
+    function getContractBalance() public view returns (uint256) {
         return address(this).balance;
+    } 
+    function recieveEtherToContractAccount() public payable{
+        //Call this function with some ether. The ethers will be added to contract's account
     }
-    function sendEther() public {
-        // Sending ethers form this account to another(user(
-        user.transfer(1 ether);
-    }
+    function transferEther(address payable toAccount, uint256 amount ) public {
+        //Call this function to transfer ethers from contract's account to other account
+        toAccount.transfer(amount);
+    }  
 }
