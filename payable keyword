@@ -15,3 +15,22 @@ If you call simple function(without payable keyword) with some ether, it will th
 // Call this function along with some Ether.
 // The function will throw an error since this function is not payable.
 function abc() public {}
+
+
+
+pragma solidity >=0.5.0 < 0.9.0;
+
+contract pay{
+    address payable user;
+    function payEther() public payable {
+        // We can pay some amount to the deployer of this contract by this function
+        user = payable(msg.sender);
+    }
+    function getBalance() public view returns(uint){
+        return address(this).balance;
+    }
+    function sendEther() public {
+        // Sending ethers form this account to another(user(
+        user.transfer(1 ether);
+    }
+}
