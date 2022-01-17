@@ -1,0 +1,124 @@
+Geth: Geth acts as an Ethereum client to connect to public and test networks. Geth uses JSON RPC protocol for communication.
+Geth is based on JSON RPC protocol. It defines the specification for remote procedure calls with payload encoded in JSON format.
+
+Geth allows connectivity to JSON RPC using the following
+three different protocols:
+a. Inter Process Communication (IPC): This protocol is used for inter
+   process communication generally used within the same computer.
+b. Remote Procedure Calls (RPC): This protocol is used for inter
+   process communication across computers. This is generally based
+   on TCP and HTTP protocol.
+c. Web Sockets (WS): This protocol is used to connect to Geth using
+   sockets.
+   
+     A word of caution here(After installing geth):
+        a. Just typing geth and executing will connect Geth to a public main network and it will start syncing and
+          downloading all the blocks and transactions.
+        b. The current chain has more than 180 GB of data.
+    1. To connect, download and sync main network
+         a. geth
+    2. To connect, download and sync ropsten test network
+         a. geth --testnet
+    3. To connect, download and sync rinkeby test network
+         a. geth --rinkeby
+         
+         
+Every blockchain has an id
+Following are the network IDs used for connecting to the following different networks:
+a. The chain ID 1 represents a Homestead public network
+b. The chain ID 2 represents Morden (not used anymore)
+c. The chain ID 3 represents Ropsten
+d. The chain ID 4 represents Rinkeby
+e. The chain ID above 4 represents a private network
+Testnet also have almost 40-50GB of data. For initial stage you can create your own blockchain using geth.
+
+/*****************To make a private blockchain network using gen*****************************/
+Step 1: Install geth then make a file(for genesis block with .json extension) and write this code in that file.
+{
+"config": {
+    "chainId": 15,
+    "homesteadBlock": 0,
+    "eip1508lock": 0,
+    "eip155Block": 0,
+    "eip158Block": e
+},
+"nonce": "exee00000eee000042",
+"mixhash":
+"exee000000000000000000000000000000000000000000000000000000000",
+"difficulty": "ex200",
+"alloc": {},
+"coinbase": "exe000000000000000000000000000000000000e00",
+"timestamp": "@xee",
+"parentHash":
+"exeeeeeeeeeeee000eeee00000eeeee0000000eeeeee000000eeee000eeeeeeee",
+"gasLimit": "exffffffff",
+"alloc": {
+}
+
+Step 2: Run this command in terminal geth init "Gen.json file location" --datadir "Location where you want to save whole blockchain data"
+        e.g geth init "D:\myeth\gen.json" --datadir "D:\myeth\chaindata"
+
+Step 3: To connect to your own blockchain using geth   geth --datadir "D:\myeth\chaindata" --rpc --rpcapi "eth,web3, miner, admin, personal,
+                                                       net" --rpccorsdomain --nodiscover --networkid 15
+                                                       15 is our blockchain id
+                                                    
+Step 4: To connect to your blockchain for making transaction run: geth attach rpc:http://127.0.0.1:8545,
+        To make new account run personal.newAccount()
+                                                       
+
+
+Ganache: Ganache create local blockchain in just one click to each the process of development and test the solution of smart contract on Ethereum.
+Used as an alternative to geth. Easier in comparison with geth but ganache always connects with local blockchain not even with testnets.
+Transaction on test network require mining and mining requires writing transaction on ethereum ledger which can take time
+Using ganache there is no waiting period for mining of transactions. Transactions are written as they are generated.
+
+Truffle: Truffle is a framework for building, testing, and deploying applications on the Ethereum network.
+1. Truffle helps increase the speed of development, deployment and testing, and increases developer productivity.
+2. It is built specifically for Ethereum-based contract and application development.
+3. It is a node runtime based framework that can help implement DevOps, continuous integration, continuous delivery, and continuous deployment with ease.
+4. Truffle provides lots of scaffolding code and configuration by
+5. default. Developers need only to reconfigure some of out-of-the-box configuration options and focus on writing their contracts.
+
+Step 1: Install truffle and make a folder and then run "truffle init" to create a project
+Step 2: Update truffle and truffle-config with following code, geth or ganache should be running with rpc on specified port
+module.exports (
+   networks: {
+      development: {
+         host: "127.0.0.1",
+         port: 8545,
+        network id: Match any network id
+        }
+    }
+}
+
+Step 3: Make a contract inside contracts folder
+pragma solidity ^0.5.0;
+contract First {
+ int public mydata;
+ function GetDouble(int _data) public returns (int _output) {
+   mydata = _data * 2;
+   return _data * 2;
+   }
+}
+Step 4: Make .js file inside migration folder for deployment with numberand underscore. 2_Custom.js
+var First = artifacts.require("./First.sol");
+module.exports = function(deployer) {
+  deployer.deploy(First);
+};
+
+Step 4: To compile
+
+. Execute the compile command using truffle.cmd
+ a. truffle.cmd compile
+ b. truffle compile
+. Deploy the compiled contracts with truffle's migrate
+                   OR
+  command
+  a. truffle.cmd migrate
+  b. truffle migrate
+                   OR
+
+
+
+
+
