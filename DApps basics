@@ -1,0 +1,13 @@
+DApps:  It has a client interface as a front-end and a back-end that includes decentraliation(blockchain and smart contracts maybe).
+They depend on the functionality of a blockchain for its infrastructure and operations.
+1. Provides blockchain features and services to the outside world for review, interactions and enjoyment.
+2. Gives access to the blockchain for people and applications and systems, not necessarily known to each other to transact peer-to-peer.
+3. It is an end-to-end application development process.
+
+
+Commands to setup ethereum blockchain server locally
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
