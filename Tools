@@ -76,8 +76,8 @@ Truffle: Truffle is a framework for building, testing, and deploying application
 1. Truffle helps increase the speed of development, deployment and testing, and increases developer productivity.
 2. It is built specifically for Ethereum-based contract and application development.
 3. It is a node runtime based framework that can help implement DevOps, continuous integration, continuous delivery, and continuous deployment with ease.
-4. Truffle provides lots of scaffolding code and configuration by
-5. default. Developers need only to reconfigure some of out-of-the-box configuration options and focus on writing their contracts.
+4. Truffle provides lots of scaffolding code and configuration by default.
+5. Developers need only to reconfigure some of out-of-the-box configuration options and focus on writing their contracts.
 
 Step 1: Install truffle and make a folder and then run "truffle init" to create a project
 Step 2: Update truffle and truffle-config with following code, geth or ganache should be running with rpc on specified port
@@ -109,14 +109,10 @@ module.exports = function(deployer) {
 Step 4: To compile
 
 . Execute the compile command using truffle.cmd
- a. truffle.cmd compile
- b. truffle compile
-. Deploy the compiled contracts with truffle's migrate
-                   OR
-  command
-  a. truffle.cmd migrate
-  b. truffle migrate
-                   OR
+   truffle compile
+. Deploy the compiled contracts with truffle's migrate command              
+   truffle migrate
+                   
 
 
 
