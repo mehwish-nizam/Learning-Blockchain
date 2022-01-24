@@ -1,0 +1,15 @@
+Modifiers: 
+1. If we want to apply validation before executing logic of function so we can use modifier and decide in modifier whether target function should be executed.
+2. This helps in writing cleaner functions without cluttering them with validation and verification rules.
+3. Moreover, the modifier can be associated with multiple functions. This ensures cleaner, more readable, and more maintainable code.
+
+address owner;
+modifier onlyBy () {
+   if (msg.sender == owner) {
+      _;
+   }}
+An _ underscore in a modifier means: execute the target function. You can think of this as the underscore being replaced by the target function inline
+
+function getValues () public view onlyBy returns (uint) {
+   return 56;
+   }
