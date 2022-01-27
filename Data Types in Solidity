@@ -1,4 +1,0 @@
-1. address: The address type is a 160-bit value that does not allow any arithmetic operations. It is suitable for storing addresses of contracts, 
-            or a hash of the public half of a keypair belonging to external accounts.
-            e.g address public minter; ===> minter is the variable name of type address
-2. 

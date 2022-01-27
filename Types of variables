@@ -1,0 +1,30 @@
+Types of variables: 
+1. Value type(e.g bool,uint,int,address,byte,enum)
+A type is referred as value type if it holds the data (value) directly within the memory owned by it.
+These types have values stored with them, instead of elsewhere
+Value types are types that do not take more than 32 bytes of memory in size.
+
+******Passing By value************
+1. When a value type variable is assigned to another variable or when a value type variable is sent as an argument to a function, EVM creates a new 
+variable instance and copies the value of original value type into target variable.
+2. Changing values in original or target variables will not affect the value in another variable.
+3. Both the variables will maintain their independent, isolated values
+
+
+2. Reference type(e.g )
+Reference types, unlike value types, do not store their values directly within the variables themselves.
+Instead of the value, they store the address of the location where the value is stored.
+The variable holds the pointer to another memory location that holds the actual data.
+Reference types are types that can take more than 32 bytes of memory in size.
+
+*******Passing by reference*************
+When a reference type variable is assigned to another variable or when a reference type variable is sent as an argument to a function, EVM creates a new 
+variable instance and copies the pointer from the original variable into the target variable.
+Both the variables are pointing to the same address location
+Changing values in the original or target variables will change the value in other variables Also.
+
+Points to remember:
+Assignments to state variable from another state variable always creates a new copy for both value type and reference type
+Assignments to storage variables from another memory variable always create a new copy for both value type and reference type
+Assignments to memory variable from another state variable always creates a new copy for both value type and reference type
+Assignments to a memory variable from anothermemory variable DO NOT create a copy for reference types(Different) However, they do create a new copy for value types.
