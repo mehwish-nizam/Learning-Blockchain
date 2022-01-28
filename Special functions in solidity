@@ -11,3 +11,11 @@ send: The send method is used to send Ether to a contract or to anindividually o
 . The send function returns a boolean true/false as a return value.
 . In case failure, an exception is not returned; instead, false is returned from the function.
 . In case of failure, your funds will not be returns and it will be hold by contract of the function which you have called
+(Send function does not raise exception when fund is not transferred due to any reason That's why it's not recommended to use it)
+
+transfer: The transfer method is similar to the send method.
+. It is responsible for sending Ether or wei to an address. However, the difference here is that transfer raises anexception in the case of 
+execution failure, instead of returning false, and all changes are reverted.
+. The transfer method is preferred over the send method as it raises an exception in the event of an error, meaning exceptions are bubbled up 
+in the stack and halt execution.
+. In case of failure funds will not be deducted and it will stay in account which initiate the transaction
