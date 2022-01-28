@@ -2,6 +2,12 @@ recieve: recieve is a special reserved function to recieve ethers into contract'
       . written only once in a contract 
       . without function keyword 
       . with external 
-      . and payable devlaration 
+      . and payable declaration 
       . and no arguments
         e.g recieve() external payable { // You can write some code here or can leave this empty}
+
+send: The send method is used to send Ether to a contract or to anindividually owned account
+. The send function provides 2,300 gas as a fixed limit, which cannot be superseded.
+. The send function returns a boolean true/false as a return value.
+. In case failure, an exception is not returned; instead, false is returned from the function.
+. In case of failure, your funds will not be returns and it will be hold by contract of the function which you have called
