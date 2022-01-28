@@ -8,6 +8,12 @@ The values can be of any type.
 Mappings are always stored in storage irrespective of whether they are
 declared in contract storage or not.
 
+Although it is similar to a hash table and dictionary, Solidity does not allow iterating through mapping.
+A value from mapping can be retrieved if the key is known.
+Mapping cannot be declared within functions as memory mappings. However, mappings can be declared in functions if they refer to mappings declared 
+in state variables
+
+
 
 Example:
 pragma solidity ^0.5.0;
