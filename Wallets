@@ -1,0 +1,16 @@
+A cryptocurrency wallet is simply a place where you store your private keys
+
+Non-deterministic Wallets
+Private keys are generated randomly. After generating it can never be traced back and have no association with each other.
+The more traditional approach to wallets was called non-deterministic wallets. These wallets came with randomly generated private
+keys and were able to generate further random keys when requested. Whilst at the outset from a security perspective this sounds a 
+positive thing, none of the keys having a relationship to each other creates a management headache. Since there is no relationship 
+between any of the keys each and every key must be backed up. As you generate more and more keys the management challenge increases.
+
+Deterministic wallets:
+Private keys are generated from some seed word and can be traced back and determined
+Two types of deterministic wallets:
+1. Sequential deterministic wallets
+    Seed ---> Private keys
+2. Hierarchial deterministic wallets
+Seed---> Master key ---> Child keys(multiple) ---> Grandchilds(multiple)-----
