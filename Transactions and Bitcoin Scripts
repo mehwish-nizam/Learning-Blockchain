@@ -1,0 +1,36 @@
+Blocks contain transactions. In block header,we have four elements
+1. Previous block hash
+2, Time
+3. Merkle root
+4. Nonce
+
+Then there are no of transactions in a block.
+
+Transactions encode the transfer of value between participants in the system.
+In more detail, a transaction is a data structure that encodes a transfer of value from a source of funds called an “input” to a destination called 
+an “output”.
+Transaction in the bitcoin blockchain are stored in a double-hashed form 
+i.e(SHA256(SHA256(01000…)) = b138360800cdc72248c3ca8dfd06de85913d1aac7f41b4fa54eb1f5a4a379081)
+A raw transtions has:
+1. Version no
+2. No of inputs
+3. Input info (input unlocking scripts i.e the conditions which should be met for spending this input)
+4. No of outputs
+5. Output info (output locking scripts i.e the conditions for spending output in the future e.g Lock the output with Bob's public key means only bob can
+                use these bitcoins with his private key and will form the basis of unlocking scripts of future transactions)
+6. Locktime Time for transaction if this is 00000 then transaction should added asap
+                                 if its less than 500 million it will be block height (Block height is the no of blocks from genesis block)
+                                 (Miners wait for specific no of blocks to be created before this transaction)
+                                 if its greater than 500 million, it is read as UNIX timestamp(no of seconds from 1st jan 1970)
+                                 
+
+Scripts:
+List of instructions to determine if the transaction is valid and the bitcoins can be spent.
+Bitcoin script is written in a stack based scripting language called Script. We can interact with the data using opcodes. (push, pop etc)
+
+Attributes of bitcoin scripts:
+Stateless verification: No state or value is saved outside the transaction script before or after the transcation. Transaction are self contained 
+which means that scripts will be executed in the same way and generate the same output on any node.
+Turing completeness: No loop or recursion prevents from stucking into an infinite loop and crashing the network.
+                                 
+                                 
