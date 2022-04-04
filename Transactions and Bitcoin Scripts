@@ -31,6 +31,37 @@ Bitcoin script is written in a stack based scripting language called Script. We 
 Attributes of bitcoin scripts:
 Stateless verification: No state or value is saved outside the transaction script before or after the transcation. Transaction are self contained 
 which means that scripts will be executed in the same way and generate the same output on any node.
-Turing completeness: No loop or recursion prevents from stucking into an infinite loop and crashing the network.
+Turing completeness: No loop or recursion prevents from stucking into an infinite loop and crashing the network. 
+
+/**********************************COMMANDS TO CREATE AND SEND TRANSACTIONS IN BITCOIN CORE*******************************/
+
+    Step 1 - View all unspent confirmed UTXO in the wallet
+        listunspent - Show all the unspent confirmed outputs in our wallet. Pick any one or two UTXOs with enough balance to create transactions
+    Step 2 - View Details about a Specific UTXO
+        gettxout - Get the details of this unspent output above (gettxout "txid" n) n is the vout number
+    Step 3 - Create a Raw Transaction
+        createrawtransaction - Create a transaction
+        createrawtransaction '[{"txid":"TXID","vout": VOUT}]’’{“to_address”:amount1, “from_address”:amount2}’
+        TXID is the transaction ID of chosen UTXO nad VOUT is the vout of that chosen transaction. to_address is the recieving address and from_address
+        is your own address to send change back.
+        createrawtransaction '[{"txid": "e787a27bda32c8b54ee501be46d2cfcd47c1566c8ef6ee339bdb7cd5c82b701c", "vout":0}]' 
+        '{"2NFK8YHKT6hPPTDKTPP3c5bx7oPGrYhzj2y":0.030, "2Mzxx8wGAmQQyCCrb2vXP4yxaYY9s9nepfy":0.0195}'
+        This will return a HEXSTRING.
+    Step 4 - Decode the Raw Transaction (to double-check it went through correctly)
+        decoderawtransaction - View raw HEXSTRING that encodes the transaction details we supplied
+        decoderawtransaction 02000000011c702bc8d57cdb9b33eef68e6c56c147cdcfd246be01e54eb5c832da7ba287e70000000000ffffffff02c0c62d000000000017a914f20fe211102535
+    Step 5 - Sign the Raw Transaction
+        signrawtransactionwithwallet
+            signrawtransaction - older versions than 0.17
+            signrawtransactionwithwallet 02000000011c702bc8d57cdb9b33eef68e6c56c147cdcfd246be01e54eb5c832da7ba287e70000000000ffffffff02c0c62d000000000017a914f20fe211102535
+    Step 6 - Submit the Raw Transaction to the Network
+        sendrawtransction - Takes the raw hex string produced by signrawtransaction and returns a transaction hash (txid) as it submits 
+        the transaction on the network.
+        sendrawtransaction 020000000001011c702bc8d57cdb9b33eef68e6c56c147cdcfd246be01e54eb5c832da7ba287e70000000017160014c794ee65db89222f408dfe1728d214f2496d7a72ffffffff02c0c62d000000000017a914f20fe211102535
+        This will return a transaction id which we can use to query the transaction in future
+    Step 7 - Query the TxID of the Transaction we sent
+        gettransaction - Query the TxID and view details. Similar to online block explorer
+        gettransaction ae74538baa914f3799081ba78429d5d84f36a0127438e9f721dff584ac17b346
+
                                  
                                  
