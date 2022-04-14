@@ -1,0 +1,5 @@
+Nonce in Bitcoin:
+A nonce is an abbreviation for "number only used once," which is a number added to a hashed—or encrypted—block in a blockchain that, when rehashed, meets the difficulty level restrictions. The nonce is the number that blockchain miners are solving for, in order to receive cryptocurrency.
+
+Nonce in Ethereum:
+In Ethereum, every transaction has a nonce. The nonce is the number of transactions sent from a given address. Each time you send a transaction, the nonce increases by 1 . There are rules about what transactions are valid, and the nonce is used to enforce some of these rules.
