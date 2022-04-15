@@ -1,0 +1,51 @@
+if (typeof web3 !== 'undefined') {
+	var web3 = new Web3(web3.currentProvider); //Connect with metamask
+} else {
+//Connect locally with ganache or if wanted to connect with main or testnet just replace this url with infura endpoint url
+	var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545")); 
+}
+
+// Get the contract address
+var RemixContract = new web3.eth.Contract([
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "x",
+				"type": "string"
+			}
+		],
+		"name": "setMessage",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMessage",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+//Deployed contract address from remix. 
+//Make sure that while deploying Web3provider with localhost url selected if deploying on ganache
+// If deploying on testnet or mainnet injected web3 with required network on metamask should be selected
+
+ RemixContract.options.address = '0xcC32c4B5B789E7C346e2298194f31B071d4c0e06'; 
+ 
+ 
+//Call this function on any event of front-end eg button click etc
+async function sendMessage(){
+	 var accounts = await web3.eth.getAccounts(); //Returns a list of addresses connected to the node
+	let message = "Hello Blockchain!!";
+	RemixContract.methods.setMessage(message).send({from: accounts[0]}) // from to call the function form this account
+	.then(()=>console.log)
+	.catch((err)=>console.log(err))
+}
